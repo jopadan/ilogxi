@@ -9,7 +9,7 @@ extern "C" {
 #include <limits.h>
 #include <assert.h>
 
-#ifdef __i386__ || __x86_64__
+#ifdef (__i386__ || __x86_64__)
 #include <x86gprintrin.h>
 #endif
 
