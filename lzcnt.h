@@ -1,6 +1,7 @@
 #pragma once
 
 #include <stdint.h>
+#include <limits.h>
 
 uint32_t lzcnt32_generic(uint32_t x);
 uint32_t lzcnt64_generic(uint64_t x);
