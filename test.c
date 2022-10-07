@@ -22,5 +22,9 @@ int main(int argc, char** argv)
 	                base,
 			u,
 	                ilogxuq(u,base));
+	fprintf(stdout, "ilog%lu(%ld): %ld\n",
+	                base,
+			u,
+	                ilogxi(u,base));
 	exit(EXIT_SUCCESS);
 }
