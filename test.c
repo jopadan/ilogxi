@@ -12,19 +12,29 @@ int main(int argc, char** argv)
 
 	u_quad_t base = argc > 2 ? strtouq(argv[2], NULL, 10) : 2;
 	u_quad_t u = strtouq(argv[1], NULL, 10);
-	int32_t i = atoi(argv[1]);
-
-	fprintf(stdout, "ilog%lui(%d): %d\n",
+	quad_t i = strtoq(argv[1], NULL, 10);
+	fprintf(stdout, "%lu %lu %ld\n", u, base, i);
+	fprintf(stdout, "C/C++ ilog%lui(%ld): %d\n",
 	                base,
 			i,
 	                ilogxid(i,base));
-	fprintf(stdout, "ilog%luu(%ld): %ld\n",
+	fprintf(stdout, "C/C++ ilog%luu(%ld): %ld\n",
 	                base,
 			u,
 	                ilogxuq(u,base));
-	fprintf(stdout, "ilog%lu(%ld): %ld\n",
+	fprintf(stdout, "C/C++ ilog%luimax(%ld): %ld\n",
 	                base,
 			u,
-	                ilogxi(u,base));
+	                ilogximax(u,base));
+	fprintf(stdout, "C/C++ ilog%luumax(%lu): %lu\n",
+	                base,
+			u,
+	                ilogxumax(u,base));
+	#ifdef __cplusplus
+	fprintf(stdout, "C++   ilog%lu(%ld): %ld\n",
+	                base,
+			u,
+	                ilogx<intmax_t>(u,base));
+	#endif
 	exit(EXIT_SUCCESS);
 }
